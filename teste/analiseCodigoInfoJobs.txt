@@ -1,0 +1,28 @@
+div id = auxContainer - está é a div do formulario inteiro.
+
+div id - ct100_phMasterPage_cGrid_divGrid class orddata - div do retorno das vagas
+
+Estrutura das vagas cada uma dentro de uma tag 
+
+<ol>
+  <ul>
+     varios li podem estar dentro dessa estrutura.
+    <li>
+	
+    </li>
+   </ul>
+</ol>
+
+---------------------------------------------------------------------------------------
+
+sites = hxs.select('..//div[@class=" orddata"]/ul')
+        items = []
+        for site in sites:
+            item = DmozItem()
+            item['titleVaga'] = site.select('li//h2/text()').extract()
+            item['link'] = site.select('li/a[@class="vagaTitle"]/@href').extract()
+            item['desc'] = site.select('li[@class="vagaDesc"]/text()').extract()
+            item['location'] = site.select('li[@class="location2"]/text()').extract()
+            item['area'] = site.select('li[@class="area "]/span/text()').extract()
+            items.append(item)
+        return items

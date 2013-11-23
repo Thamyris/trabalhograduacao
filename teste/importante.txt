@@ -1,0 +1,7 @@
+easy_install  pip
+
+apt-get install -y python-dev python-setuptools
+
+scrapy runspider teste.py
+
+missing scheme in request url: %r' % slf._url exception.velueError: Missing scheme in request url: h
